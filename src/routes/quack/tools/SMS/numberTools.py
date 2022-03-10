@@ -10,10 +10,10 @@ def normalize(phone):
 
 # Make for other services
 def transformPhone(phone, i):
-	if i == 5:
-		return '+' + phone[0] + ' (' + phone[1:4] + ') ' + phone[4:7] + ' ' + phone[7:9] + ' ' + phone[9:11]
+    if i == 5:
+        return f'+{phone[0]} ({phone[1:4]}) {phone[4:7]} {phone[7:9]} {phone[9:11]}'
 
 # Get country name by phone
 def getCountry(phone):
-	query = parse("+" + phone, None)
-	return repr(geocoder.description_for_number(query, 'en'))
+    query = parse(f"+{phone}", None)
+    return repr(geocoder.description_for_number(query, 'en'))

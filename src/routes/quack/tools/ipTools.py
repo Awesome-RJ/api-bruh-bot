@@ -13,8 +13,8 @@ def isCloudFlare(link):
 		origin = socket.gethostbyname(domain)
 		iprange = requests.get('https://www.cloudflare.com/ips-v4').text
 		ipv4 = [row.rstrip() for row in iprange.splitlines()]
-		for i in range(len(ipv4)):
-			if ipaddress.ip_address(origin) in ipaddress.ip_network(ipv4[i]):
+		for item in ipv4:
+			if ipaddress.ip_address(origin) in ipaddress.ip_network(item):
 				return True
 	except socket.gaierror:
 		print("\033[1;31m"+"[-]"+"\033[0m"+"Unable to verify if victim's IP address belong to a CloudFlare\'s subnet!")

